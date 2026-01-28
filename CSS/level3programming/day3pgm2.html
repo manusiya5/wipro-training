@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Management</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .header {
+      background-color: #23c5a2;
+      color: white;
+      padding: 15px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo img {
+      width: 50px;
+      height: 50px;
+    }
+
+    section {
+      display: none;
+      padding: 30px;
+    }
+
+    #welcome {
+      display: block;
+    }
+
+    .student-img {
+      width: 150px;
+      border-radius: 50%;
+      margin-bottom: 15px;
+    }
+
+    @media (max-width: 576px) {
+      .logo h4 {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header d-flex flex-wrap justify-content-between align-items-center">
+    <div class="logo">
+      <img src="data:image/png;base64,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" alt="Logo">
+      <h4 class="m-0">Spring Flowers School</h4>
+    </div>
+
+    <div class="d-flex gap-2 mt-2 mt-md-0">
+      <button class="btn " onclick="showWelcome()">Home</button>
+      <button class="btn " onclick="showProfile()">Profile</button>
+      <button class="btn " onclick="showTimeTable()">TimeTable</button>
+    </div>
+  </div>
+
+  <div class="container mt-4">
+
+    <section id="welcome" class="text-center">
+      <div class="card shadow p-4">
+        <h3>Welcome 🎓</h3>
+        <p>Welcome to Spring Flowers School Student Portal</p>
+      </div>
+    </section>
+
+    <section id="profile">
+      <div class="card shadow p-4 text-center">
+        <h3>Student Profile</h3>
+        <img class="student-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdiliSJkVlFmf7BVx-F0CtioI3OMomTEF7A&s" alt="Student">
+        <p><b>Name:</b> Anusiya</p>
+        <p><b>Roll No:</b> 101</p>
+        <p><b>Class:</b> BSc Computer Science</p>
+        <p><b>Email:</b> anusiya@email.com</p>
+      </div>
+    </section>
+
+    <section id="timetable">
+      <div class="card shadow p-4">
+        <h3 class="text-center mb-3">Time Table</h3>
+
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover text-center">
+            <thead class="table-dark">
+              <tr>
+                <th>Day</th>
+                <th>9–10</th>
+                <th>10–11</th>
+                <th>11–12</th>
+                <th>12–1</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Monday</td>
+                <td>Maths</td>
+                <td>Java</td>
+                <td>DBMS</td>
+                <td>Lab</td>
+              </tr>
+              <tr>
+                <td>Tuesday</td>
+                <td>OS</td>
+                <td>Java</td>
+                <td>DBMS</td>
+                <td>Library</td>
+              </tr>
+              <tr>
+                <td>Wednesday</td>
+                <td>Maths</td>
+                <td>OS</td>
+                <td>Java</td>
+                <td>Lab</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    function hideAll() {
+      document.getElementById("welcome").style.display = "none";
+      document.getElementById("profile").style.display = "none";
+      document.getElementById("timetable").style.display = "none";
+    }
+
+    function showWelcome() {
+      hideAll();
+      document.getElementById("welcome").style.display = "block";
+    }
+
+    function showProfile() {
+      hideAll();
+      document.getElementById("profile").style.display = "block";
+    }
+
+    function showTimeTable() {
+      hideAll();
+      document.getElementById("timetable").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

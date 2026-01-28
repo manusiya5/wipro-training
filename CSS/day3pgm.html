@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Flowers School - Employee Portal</title>
+    <style>
+        /* CSS for Layout - matching the document requirements */
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; background-color: #f4f4f4; }
+        
+        /* Menu Bar and Logo Section */
+        header { background-color: #ffcc99; padding: 15px; border-bottom: 2px solid #333; display: flex; align-items: center; justify-content: space-between; }
+        .logo { background: white; border: 1px solid #000; padding: 5px 15px; font-weight: bold; }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+
+        /* Main Profile Area */
+        .main-container { background-color: #ffcc99; margin: 20px auto; width: 80%; min-height: 400px; padding: 30px; border: 1px solid #999; }
+        
+        .profile-section { display: flex; gap: 30px; margin-top: 20px; }
+        .image-circle { width: 150px; height: 150px; border-radius: 50%; border: 2px solid #333; display: flex; align-items: center; justify-content: center; background: white; }
+        
+        /* Input Form Styling */
+        .info-area { flex-grow: 1; }
+        .input-group { margin-bottom: 10px; }
+        input { padding: 8px; width: 200px; border: 1px solid #ccc; border-radius: 4px; }
+        button { background-color: #333; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
+        
+        /* Result Box */
+        #salaryResult { margin-top: 20px; background: rgba(255,255,255,0.5); padding: 15px; border-radius: 8px; display: none; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">LOGO</div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Student Profile</a>
+            <a href="#">Settings</a>
+        </nav>
+    </header>
+
+    <div class="main-container">
+        <h1>Welcome to Spring Flowers School Portal</h1> 
+        
+        <div class="profile-section">
+            <div class="image-circle">
+                <span>Image</span>
+            </div>
+
+            <div class="info-area">
+                <h3>Calculate Monthly Salary</h3>
+                <div class="input-group">
+                    <input type="text" id="empName" placeholder="Employee Name">
+                </div>
+                <div class="input-group">
+                    <input type="number" id="workingDays" placeholder="Working Days (e.g. 22)">
+                </div>
+                <button onclick="calculateSalary()">Generate Profile Info</button>
+
+                <div id="salaryResult">
+                    <p><strong>Name:</strong> <span id="outName"></span></p>
+                    <p><strong>Gross Salary:</strong> $<span id="outGross"></span></p>
+                    <p><strong>Tax (10%):</strong> $<span id="outTax"></span></p>
+                    <hr>
+                    <p><strong>Net Salary:</strong> <span id="outNet" style="font-weight:bold; color:green;"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function calculateSalary() {
+            // 1. Get input values
+            const name = document.getElementById('empName').value;
+            const days = document.getElementById('workingDays').value;
+            const dailyRate = 500; // Example daily rate
+
+            // 2. Logic: Gross, Tax (10%), and Net
+            const gross = days * dailyRate;
+            const tax = gross * 0.10;
+            const net = gross - tax;
+
+            // 3. Display results on the profile page 
+            if(name && days) {
+                document.getElementById('outName').innerText = name;
+                document.getElementById('outGross').innerText = gross;
+                document.getElementById('outTax').innerText = tax;
+                document.getElementById('outNet').innerText = "$" + net;
+                
+                // Show the result section
+                document.getElementById('salaryResult').style.display = 'block';
+            } else {
+                alert("Please fill in all details!");
+            }
+        }
+    </script>
+
+</body>
+</html>

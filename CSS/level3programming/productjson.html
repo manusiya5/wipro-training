@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {font-family: Arial;}
+    </style>
+</head>
+<body>
+    <!--Create a program to perform CRUD various operations using fetch api -- HTMl provides get , post  ,delete , put
+    1. Fetch users from an api and display them in a list
+    2. Add a new user using post request
+    3. Update a user by ID using PUT request
+    4. Delete a user by ID using Delete request  
+    -->
+
+    <h3> User Management Operations</h3>
+
+    <button onclick="fetchUser()">Fetch Users</button>
+     <button onclick="addUser()">Add Users</button>
+      <button onclick="updateUser()">Update Users</button>
+       <button onclick="deleteUser()">Delete Users</button>
+        <ul id="users"></ul>
+      
+<script>
+const jsonData = `[
+    {"item" : "Laptop" , "price" : 60000},
+    {"item" : "Mouse" , "price" : 500},
+    {"item" : "Keyboard" , "price" : 700},
+    {"item" : "Speaker" , "price" : 5000}
+]`;
+
+const ul = document.getElementById("users");
+let products = JSON.parse(jsonData);
+
+function fetchUser() {
+    ul.innerHTML = "";   
+
+    products.forEach((prod, index) => {
+        const li = document.createElement("li");
+        li.textContent = `ID: ${index} | Item: ${prod.item} - Price: ₹${prod.price}`;
+        ul.appendChild(li);
+    });
+}
+function addUser() {
+    ul.innerHTML = "";   
+
+    products.forEach((prod, index) => {
+        const li = document.createElement("li");
+        li.textContent = `ID: ${index} | Item: ${prod.item} - Price: ₹${prod.price}`;
+        ul.appendChild(li);
+    });
+}
+
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

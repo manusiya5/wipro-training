@@ -1,0 +1,16 @@
+{
+    "courses":[
+        {
+            "id":1,
+            "name":"Java"
+        },
+        {
+            "id":2,
+            "name":"MERN"
+        },
+        {
+            "id":3,
+            "name":"Fullstack"
+        }
+    ]
+}

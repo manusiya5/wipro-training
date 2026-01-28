@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Table</title>
+
+    <style>
+       
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        th {
+            padding: 10px;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+       
+    </style>
+</head>
+<body>
+
+<h3>Users Data in JSON</h3>
+<div id="tableContainer"></div>
+
+<script>
+  function fetchingUsers() {
+    return new Promise((resolve, reject) => {
+      fetch('https://jsonplaceholder.typicode.com/todos')
+        .then(response => {
+          if (!response.ok) {
+            reject("Failed to fetch users");
+          }
+          return response.json();
+        })
+        .then(data => resolve(data))
+        .catch(err => reject(err));
+    });
+  }
+
+  fetchingUsers()
+    .then(todos => {
+
+      const container = document.getElementById("tableContainer");
+      const table = document.createElement("table");
+
+      // Header
+      const headerRow = document.createElement("tr");
+      ["User ID", "Title", "Completed"].forEach(text => {
+        const th = document.createElement("th");
+        th.textContent = text;
+        headerRow.appendChild(th);
+      });
+      table.appendChild(headerRow);
+
+      // Rows
+      todos.slice(0, 5).forEach(user => {
+        const row = document.createElement("tr");
+
+        const tdId = document.createElement("td");
+        tdId.textContent = user.id;
+
+        const tdTitle = document.createElement("td");
+        tdTitle.textContent = user.title;
+
+        const tdCompleted = document.createElement("td");
+        tdCompleted.textContent = user.completed ? "Yes" : "No";
+        tdCompleted.className = user.completed ? "yes" : "no";
+
+        row.append(tdId, tdTitle, tdCompleted);
+        table.appendChild(row);
+      });
+
+      container.appendChild(table);
+    })
+    .catch(err => console.error("Error:", err));
+</script>
+
+</body>
+</html>

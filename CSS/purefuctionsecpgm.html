@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+
+
+
+     const arr=[1000,1500,4500,63000,31000];
+         // using pure functions for incrementing the salary 
+              document.writeln(" Salary  :" + arr +"<br><br>");
+                const discount =  arr.map(val => val-(val*0.10));
+                document.writeln("New Salary using pure function method :" + discount +"<br><br>");
+                const filteredval =  discount.filter(val => val>7000);
+                document.writeln("filtered Salary using pure function method :" + filteredval +"<br><br>");
+                 const totalval =  arr.reduce((sum,val) => sum + val , 500);   
+                   document.writeln("Total accumulated salary using pure function method :" + totalval+"<br><br>");
+  </script>  
+</body>
+</html>

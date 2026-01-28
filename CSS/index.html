@@ -1,0 +1,143 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Calculation</title>
+</head>
+<body>
+ <h2>Employee Details</h2>
+  <button type="button" onclick="calculateSalary()">Click</button>
+
+  <script>
+    let person = [
+      {
+        firstName: "Niti",
+        age: 25,
+        salary: 28000
+      },
+      {
+        firstName: "Anu",
+        age: 22,
+        salary: 25000
+      }
+    ];
+    
+
+    function calculateSalary() {
+ for (let i = 0; i < person.length; i++) {
+      let basicSalary = person[i].salary; 
+      let bonus = 1000;
+      let grossSalary = basicSalary + bonus;
+
+      let tax = grossSalary * 0.10; 
+      let netSalary = grossSalary - tax;
+      document.writeln("Employee Name:", person[i].firstName +" <br>");
+      document.writeln("Basic Salary:", basicSalary+" <br>");
+      document.writeln("Bonus:", bonus +" <br>");
+      document.writeln("Gross Salary:", grossSalary+" <br>");
+      document.writeln("Tax:", tax +" <br>");
+      document.writeln("Net Salary:", netSalary +" <br>");
+      document.writeln("*****************"+" <br> <br>");
+    }
+}
+  </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Salary Calculation</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 30px;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .employee-box {
+      background-color: white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .label {
+      font-weight: bold;
+      color: #555;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h2>Employee Details</h2>
+  <button type="button" onclick="calculateSalary()">Click</button>
+
+  <div id="output"></div>
+
+  <script>
+    let person = [
+      {
+        firstName: "Niti",
+        age: 25,
+        salary: 28000
+      },
+      {
+        firstName: "Anu",
+        age: 22,
+        salary: 25000
+      }
+    ];
+
+    function calculateSalary() {
+      let result = "";
+
+      for (let i = 0; i < person.length; i++) {
+
+        let basicSalary = person[i].salary;
+        let bonus = 1000;
+        let grossSalary = basicSalary + bonus;
+        let tax = grossSalary * 0.10;
+        let netSalary = grossSalary - tax;
+
+        result += `
+          <div class="employee-box">
+            <p><span class="label">Employee Name:</span> ${person[i].firstName}</p>
+            <p><span class="label">Basic Salary:</span> ${basicSalary}</p>
+            <p><span class="label">Bonus:</span> ${bonus}</p>
+            <p><span class="label">Gross Salary:</span> ${grossSalary}</p>
+            <p><span class="label">Tax:</span> ${tax}</p>
+            <p><span class="label">Net Salary:</span> ${netSalary}</p>
+          </div>
+        `;
+      }
+
+      document.getElementById("output").innerHTML = result;
+    }
+  </script>
+
+</body>
+</html>

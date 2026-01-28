@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <script>
+//     Functional Programming and Pure Functions.
+
+// What is pure functions  ---    where we focus on what to do rather then how to do 
+// traditional functions --- like for , foreach --
+//  here we were focussing on what to do but also on how to do (logic)
+
+
+// Pure functions are like : - map()
+// 
+// , reduce() and filter()
+
+// map() -> when we want to transform each element in an array and it return a new array.
+
+// filter() -- when we want to select specific elements that meet a condition or when we want to extract the data 
+
+// reduce() -- when we want to return a single value after accumulating array values that we have or we want to 
+// summarize or to get aggregate data 
+
+// == We want to calculate the total sum of 10 natural numbers  sum += sum +n
+// p arrow function will take each product p from an array and return a new object 
+  // ...(spread) means- it will copy all properties of the original product and apply discount on it
+
+        // traditional way for incrementing the salary 
+
+        const salaries = [45000,67000 ,36000];
+
+        document.writeln(salaries[0]);
+
+        const newsalaries =[];
+
+        for(let i=0; i<salaries.length ;i++)
+        {
+
+            newsalaries.push(salaries[i] + 1000)
+        }
+
+        document.writeln("New Salary using traditional method :\n" + newsalaries);
+
+        const highlypaidemployees = [];
+        for(let i=0 ; i<salaries.length ; i++)
+        {
+
+
+            if(salaries[i] > 20000)
+            highlypaidemployees.push(salaries[i]);
+        }
+
+        document.writeln("Highly paid employees using traditional method :\n" + highlypaidemployees);
+
+        let totalSalary = 0;
+         for(let i=0 ; i<salaries.length ; i++)
+         {
+            totalSalary += salaries[i];
+         }
+
+         document.writeln("Total salary of employees using traditional method :\n" + totalSalary);
+
+         // using pure functions for incrementing the salary 
+
+                 const empsalaries = [45000,67000 ,36000];
+
+                const empnewsalaries =  empsalaries.map(sal => sal+1000);
+                document.writeln("New Salary using pure function method :" + newsalaries);
+                const filteredsalaries =  empsalaries.filter(sal => sal>50000);
+                document.writeln("filtered Salary using pure function method :" + filteredsalaries);
+                 const totalsalaries =  empsalaries.reduce((sum,sal) => sum + sal , 50);   
+                   document.writeln("Total accumulated salary using pure function method :" + totalsalaries);
+  </script>  
+</body>
+</html>
