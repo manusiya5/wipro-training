@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <title>Event Dashboard</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+
+    body {
+
+      font-family: Arial, sans-serif;
+
+      background: #9abee2;
+      color: black;
+
+      padding: 20px;
+      text-align: center;
+
+    }
+
+    .filters {
+
+      display: flex;
+
+      gap: 10px;
+
+      justify-content: center;
+
+      margin-bottom: 20px;
+
+    }
+
+    .events {
+
+      display: grid;
+
+      gap: 15px;
+
+    }
+
+    .card {
+
+      background: white;
+
+      padding: 15px;
+
+      border-radius: 6px;
+
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <h1 style="text-align:center">Event Dashboard</h1>
+
+
+  <div class="filters">
+
+    <select id="categoryFilter">
+
+      <option value="Events"> Events</option>
+
+      <option value="Fun">Fun</option>
+
+      <option value="Technology">Technology</option>
+
+      <option value="Music">Music</option>
+
+      
+
+    </select>
+
+    <input type="date" id="dateFilter" />
+
+  </div>
+
+
+  <div class="events" id="eventContainer"></div>
+
+  <script>
+
+
+    const Events = [
+
+      {
+
+        id: 1,
+
+        title: "Standup show",
+
+        category: "Fun",
+
+        date: "09/02/2026",
+
+        location: "Coimbatore"
+
+      },
+
+      {
+
+        id: 2,
+
+        title: "Music Carnival",
+
+        category: "Music",
+
+        date: "02.12.2026",
+
+        location: "Trichy"
+
+      },
+
+      {
+
+        id: 3,
+
+        title: "Conference",
+
+        category: "Technical",
+
+        date: "05.09.2026",
+
+        location: "Chennai"
+
+      }
+
+    ];
+
+    const eventContainer = document.getElementById("eventContainer");
+
+    const categoryFilter = document.getElementById("categoryFilter");
+
+    const dateFilter = document.getElementById("dateFilter");
+
+    let allEvents = [];
+
+
+    const fetchEvents = async () => {
+
+      return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+
+          resolve(Events);
+
+        }, 500);
+
+      });
+
+    };
+
+
+    const renderEvents = (events) => {
+
+      eventContainer.innerHTML = "";
+
+      events.forEach(({ title, category, date, location }) => {
+
+        eventContainer.innerHTML += `
+
+          <div class="card">
+
+            <h3>${title}</h3>
+
+            <p><strong>Category:</strong> ${category}</p>
+
+            <p><strong>Date:</strong> ${date}</p>
+
+            <p><strong>Location:</strong> ${location}</p>
+
+          </div>
+
+        `;
+
+      });
+
+    };
+
+
+    const applyFilters = () => {
+
+      const selectedCategory = categoryFilter.value;
+
+      const selectedDate = dateFilter.value;
+
+      const filteredEvents = allEvents.filter(event => {
+
+        const categoryMatch =
+
+          selectedCategory === "All" || event.category === selectedCategory;
+
+        const dateMatch =
+
+          !selectedDate || event.date === selectedDate;
+
+        return categoryMatch && dateMatch;
+
+      });
+
+      renderEvents(filteredEvents);
+
+    };
+
+
+    categoryFilter.addEventListener("change", applyFilters);
+
+    dateFilter.addEventListener("change", applyFilters);
+
+
+    fetchEvents().then(data => {
+
+      allEvents = data;
+
+      renderEvents(allEvents);
+
+    });
+
+  </script>
+
+</body>
+
+</html>

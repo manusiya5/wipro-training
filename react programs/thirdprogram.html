@@ -1,0 +1,149 @@
+
+
+enum CustomerStatus {
+
+  ACTIVE = "Active",
+
+  INACTIVE = "Inactive"
+
+}
+
+type ContactInfo = [string, number];
+
+interface ICustomer {
+
+  id: number;
+
+  name: string;
+
+  status: CustomerStatus;
+
+  contact: ContactInfo;
+
+  register(): void;
+
+}
+
+// Simple decorator (exam-safe)
+
+function LogAction(target: any, propertyKey: string) {
+
+  console.log(`Method decorated: ${propertyKey}`);
+
+}
+
+class Customer implements ICustomer {
+
+  id: number;
+
+  name: string;
+
+  status: CustomerStatus;
+
+  contact: ContactInfo;
+
+  constructor(id: number, name: string, contact: ContactInfo) {
+
+    this.id = id;
+
+    this.name = name;
+
+    this.contact = contact;
+
+    this.status = CustomerStatus.ACTIVE;
+
+  }
+
+  @LogAction
+
+  register(): void {
+
+    console.log(`${this.name} registered successfully`);
+
+  }
+
+}
+
+class PremiumCustomer extends Customer {
+
+  membershipLevel: string;
+
+  constructor(
+
+    id: number,
+
+    name: string,
+
+    contact: ContactInfo,
+
+    membershipLevel: string
+
+  ) {
+
+    super(id, name, contact);
+
+    this.membershipLevel = membershipLevel;
+
+  }
+
+  @LogAction
+
+  upgrade(): void {
+
+    console.log(`${this.name} upgraded to ${this.membershipLevel}`);
+
+  }
+
+}
+
+class CustomerManager {
+
+  private customers: Customer[] = [];
+
+  addCustomer(customer: Customer): void {
+
+    this.customers.push(customer);
+
+  }
+
+  getCustomers(): Customer[] {
+
+    return this.customers;
+
+  }
+
+}
+
+// Usage
+
+const manager = new CustomerManager();
+
+const customer1 = new Customer(1, "Arjun", ["arjun@email.com", 9876543210]);
+
+const customer2 = new PremiumCustomer(
+
+  2,
+
+  "Meera",
+
+  ["meera@email.com", 9123456780],
+
+  "Gold"
+
+);
+
+manager.addCustomer(customer1);
+
+manager.addCustomer(customer2);
+
+customer1.register();
+
+customer2.register();
+
+customer2.upgrade();
+
+for (const cust of manager.getCustomers()) {
+
+  console.log(cust.name, cust.status);
+
+}

@@ -1,0 +1,118 @@
+{
+  "biriyani": [
+    {
+      "id": 1,
+      "name": "Chicken Biriyani",
+      "price": 250,
+      "category": "biriyani",
+       "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjhsPXWSgognjal2mSGWf73TgaANbOCfKGDg&s",
+      "description": "Aromatic basmati rice cooked with tender chicken and spices"
+    },
+    {
+      "id": 2,
+      "name": "Mutton Biriyani",
+      "price": 380,
+      "category": "biriyani",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhmK9m_gYcouOyOsKafFTMqdXXpRMlM8B-sg&s",
+      "description": "Slow-cooked mutton with rich spices and long-grain rice"
+    },
+    {
+      "id": 3,
+      "name": "Egg Biriyani",
+      "price": 180,
+      "category": "biriyani",
+      "image":"https://ministryofcurry.com/wp-content/uploads/2019/11/egg-biryani-3-1.jpg",
+      "description": "Flavorful rice with boiled eggs and traditional masala"
+    },
+      {
+      "id": 4,
+      "name": "Hyderabadi Chicken Biriyani",
+      "price": 250,
+      "category": "biriyani",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQafqoYv-LNBDU803_1eui7Xy9PmyFh9BOuLw&s",
+      "description": "Aromatic basmati rice cooked with tender chicken and spices"
+    },
+     {
+      "id": 5,
+      "name": "Paneer Biriyani",
+      "price": 200,
+      "category": "biriyani",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAiWL_0Ew2Nwwrq6_huCBzOrTPSQ9cNKv-Gg&s",
+      "description": "Aromatic basmati rice cooked with tender chicken and spices"
+    },
+     {
+      "id": 6,
+      "name": "Vegetable Biriyani",
+      "price": 150,
+      "category": "biriyani",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSad7UvYeKr4eql2U3lGcPoY8aRgHYS4kUKnQ&s",
+      "description": "Aromatic basmati rice cooked with tender chicken and spices"
+    }
+  ],
+
+  "starters": [
+    {
+      "id": 7,
+      "name": "Lollipop",
+      "price": 180,
+      "category": "starter",
+      "image":"https://i.pinimg.com/originals/8c/2b/01/8c2b015d172f8eec08a45a6a00ebc920.jpg"
+    },
+    {
+      "id": 8,
+      "name": "Chicken 65",
+      "price": 120,
+      "category": "starter",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTfE64kpHxQ9ea2KDDHTl4HfkOTM9AqD8WcxQ&s"
+    },
+     {
+      "id": 9,
+      "name": "Tandoori Chicken",
+      "price": 400,
+      "category": "starter",
+      "image":"https://m.media-amazon.com/images/X/bxt1/M/6bxt1x7yN5k9GMh._SL828_QL90_FMwebp_.jpg"
+    },
+      {
+      "id": 10,
+      "name": "Tandoori Paneer",
+      "price": 200,
+      "category": "starter",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlFAs-S-kt2tco30luN1CzMYfIM27Nm41DiQ&s"
+    },
+      {
+      "id": 11,
+      "name": "Gobi 65",
+      "price": 80,
+      "category": "starter",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSNjnc9-0e-KZo1FKwXH8yz-8QAOYMMj3zdOQ&s"
+    }
+  ], 
+    "cooldrinks": [
+    {
+      "id": 12,
+      "name": "Coco cola",
+      "price": 70,
+      "category": "drink",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3lrnBnOytLLQUuYKYIdKsqGMI-1nwXDOywQ&s"
+    },
+     {
+      "id": 13,
+      "name": "Sprite",
+      "price": 40,
+      "category": "drink",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUu02UC6S1QR8u1Ed1crRy6qkY0mGHfMdRWw&s"
+    },
+     {
+      "id": 14,
+      "name": "7 up",
+      "price": 20,
+      "category": "drink",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQS9if6kkpxrxJZIgfAcAmZVYH-lA9ReA5Rw&s"
+    }
+   
+   
+  ]
+
+  
+  
+}
