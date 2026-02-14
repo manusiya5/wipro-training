@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Admin </h3>
+
+<input id="msg" placeholder="Type message">
+<button onclick="send()">Send</button>
+
+<br><br>
+
+<form id="uploadForm">
+  <input type="file" id="file">
+  <button type="button" onclick="upload()">Upload</button>
+</form>
+
+<script>
+  async function send() {
+    const msg = document.getElementById("msg").value;
+
+    await fetch("/send-message", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth": "admin"
+      },
+      body: JSON.stringify({ message: msg })
+    });
+
+    document.getElementById("msg").value = "";
+  }
+
+  async function upload() {
+    const fileInput = document.getElementById("file");
+    const formData = new FormData();
+    formData.append("file", fileInput.files[0]);
+
+    await fetch("/upload", {
+      method: "POST",
+      headers: {
+        "auth": "admin"
+      },
+      body: formData
+    });
+
+    alert("File uploaded");
+  }
+</script>
+
+</body>
+</html>

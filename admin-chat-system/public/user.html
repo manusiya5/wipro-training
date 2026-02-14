@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>User Chat</h3>
+
+<ul id="chat"></ul>
+
+<h3>Uploaded Files</h3>
+<ul id="files"></ul>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  const socket = io();
+
+  socket.on("chatMessage", msg => {
+    const li = document.createElement("li");
+    li.innerText = msg;
+    document.getElementById("chat").appendChild(li);
+  });
+
+  fetch("/files")
+    .then(res => res.json())
+    .then(files => {
+      const list = document.getElementById("files");
+      files.forEach(file => {
+        const li = document.createElement("li");
+        const a = document.createElement("a");
+        a.href = "/uploads/" + file;
+        a.innerText = file;
+        a.target = "_blank";
+        li.appendChild(a);
+        list.appendChild(li);
+      });
+    });
+</script>
+
+</body>
+</html>
