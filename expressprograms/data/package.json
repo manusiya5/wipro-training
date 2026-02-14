@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "cors": "^2.8.6",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "figlet": "^1.10.0",
+    "flux": "^4.0.4",
+    "formik": "^2.4.9",
+    "mongoose": "^9.1.6",
+    "morgan": "^1.10.1",
+    "yup": "^1.7.1"
+  },
+  "name": "wipro-training",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
