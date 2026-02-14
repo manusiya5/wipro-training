@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<button onclick="callApi('/health')">Health Check</button>
+<button onclick="callApi('/login')">Login User</button>
+<button onclick="callApi('/users')">View Users</button>
+
+<pre id="out"></pre>
+
+<script>
+function callApi(url){
+  fetch("http://localhost:3000" + url)
+    .then(res => res.text())
+    .then(data => out.innerText = data);
+}
+</script>
+
+</body>
+</html>
