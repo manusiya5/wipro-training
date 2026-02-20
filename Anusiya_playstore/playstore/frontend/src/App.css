@@ -1,0 +1,15 @@
+/* suggestion */
+.suggestion-box { position:absolute; background:white; width:100%; border:1px solid gray; z-index:1000; }
+.suggestion-item { padding:10px; cursor:pointer; }
+.suggestion-item:hover { background:lightgray; }
+
+/* theme */
+.dark  { background:#121212; color:white; min-height:100vh; }
+.light { background:white;   color:black; min-height:100vh; }
+
+/* submenu */
+.submenu { position:relative; cursor:pointer; }
+.submenu-dropdown { display:none; position:absolute; top:0; left:100%; background:white; list-style:none; padding:10px; min-width:150px; border:1px solid gray; }
+.submenu:hover .submenu-dropdown { display:block; }
+.submenu-dropdown li { padding:8px; cursor:pointer; }
+.submenu-dropdown li:hover { background:lightgray; }
